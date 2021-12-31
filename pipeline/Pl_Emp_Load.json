@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "Pl_Emp_Load",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "EMP_Source_to_Target",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -20,13 +20,170 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "Source",
+							"wildcardFileName": "*",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": false,
+					"dataIntegrationUnits": 2,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "EMPLOYEE_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EMPLOYEE_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FIRST_NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FIRST_NAME",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LAST_NAME",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "LAST_NAME",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "EMAIL",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "EMAIL",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PHONE_NUMBER",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PHONE_NUMBER",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HIRE_DATE",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HIRE_DATE",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "JOB_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "JOB_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SALARY",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "SALARY",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "COMMISSION_PCT",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "COMMISSION_PCT",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MANAGER_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MANAGER_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DEPARTMENT_ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DEPARTMENT_ID",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
@@ -34,6 +191,15 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"Directory": "Source"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Emp",
+						"type": "DatasetReference",
+						"parameters": {
+							"Directory": "Target"
 						}
 					}
 				]
