@@ -15,7 +15,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "employees.csv",
 				"folderPath": {
 					"value": "@dataset().Directory",
 					"type": "Expression"
