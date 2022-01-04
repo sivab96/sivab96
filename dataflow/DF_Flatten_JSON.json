@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Emp",
+						"referenceName": "Emp_JSON",
 						"type": "DatasetReference"
 					},
 					"name": "Emp"
