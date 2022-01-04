@@ -1,0 +1,9 @@
+{
+	"name": "ADF-Dev-002",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "c1e772f1-e091-4cb3-b763-216422125e97",
+		"tenantId": "df9bb8c5-5d92-4269-8e6b-852e813de243"
+	}
+}
