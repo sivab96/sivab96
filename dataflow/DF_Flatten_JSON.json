@@ -1,0 +1,24 @@
+{
+	"name": "DF_Flatten_JSON",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Emp",
+						"type": "DatasetReference"
+					},
+					"name": "Emp"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Flatten1"
+				}
+			],
+			"script": "source(output(\n\t\tEmployees as (userId as string, jobTitleName as string, firstName as string, lastName as string, preferredFullName as string, employeeCode as string, region as string, phoneNumber as string, emailAddress as string)[]\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'documentPerLine') ~> Emp\nEmp foldDown(unroll(),\n\tmapColumn(\n\t\tEmployees\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> Flatten1"
+		}
+	}
+}
