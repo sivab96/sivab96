@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Emp Copy",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -59,11 +59,11 @@
 				]
 			},
 			{
-				"name": "Data flow1",
+				"name": "Flatten JSON",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "Emp Copy",
 						"dependencyConditions": [
 							"Succeeded"
 						]
