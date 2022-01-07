@@ -34,7 +34,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "drop table saleslt.targteproduct",
+						"preCopyScript": "drop table saleslt.targetproduct",
 						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},
