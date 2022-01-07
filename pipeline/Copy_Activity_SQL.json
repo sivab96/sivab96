@@ -187,7 +187,7 @@
 						"referenceName": "Emp_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"Directory": "Source"
+							"Directory": "Source/YYYY"
 						}
 					}
 				],
@@ -395,7 +395,7 @@
 						"referenceName": "Emp_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"Directory": "Source"
+							"Directory": "Source/YYYY"
 						}
 					}
 				],
