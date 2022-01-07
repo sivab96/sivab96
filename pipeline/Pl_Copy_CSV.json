@@ -7,9 +7,15 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Product",
+						"activity": "DFProd",
 						"dependencyConditions": [
 							"Succeeded"
+						]
+					},
+					{
+						"activity": "Product",
+						"dependencyConditions": [
+							"Failed"
 						]
 					}
 				],
@@ -152,6 +158,45 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "DFProd",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "Product",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_Product",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"Prod": {
+								"TableName": "Product"
+							},
+							"Sink": {
+								"TableName": "TargetProduct"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
 			}
 		],
 		"annotations": []
