@@ -5,7 +5,14 @@
 			{
 				"name": "Emp Copy",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Product",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -95,7 +102,7 @@
 				}
 			},
 			{
-				"name": "Copy data1",
+				"name": "Product",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -130,13 +137,19 @@
 				"inputs": [
 					{
 						"referenceName": "SQLTable",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "Product"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "SQLTable",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "target"
+						}
 					}
 				]
 			}
