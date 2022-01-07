@@ -296,8 +296,22 @@
 			{
 				"name": "Set variable1",
 				"type": "SetVariable",
-				"dependsOn": [],
-				"userProperties": []
+				"dependsOn": [
+					{
+						"activity": "AzureSQL",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "FileDate",
+					"value": {
+						"value": "@concat('Source/',formatDateTime(utcnow(),'YYYY'))",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
