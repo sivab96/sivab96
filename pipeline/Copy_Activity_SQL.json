@@ -463,7 +463,7 @@
 				"typeProperties": {
 					"variableName": "FileDate",
 					"value": {
-						"value": "@concat('Source/',formatDateTime(utcNow(),'YYYY'))",
+						"value": "@concat('Source/',formatDateTime(utcNow(),'yyyy'))",
 						"type": "Expression"
 					}
 				}
