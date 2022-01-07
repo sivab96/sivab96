@@ -183,9 +183,6 @@
 						"referenceName": "DF_Product",
 						"type": "DataFlowReference",
 						"datasetParameters": {
-							"Prod": {
-								"TableName": "Product"
-							},
 							"Sink": {
 								"TableName": "TargetProduct"
 							}
