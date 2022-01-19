@@ -93,8 +93,7 @@
 						"referenceName": "Emp_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"Directory": "target",
-							"File_Name_CSV": "Test_CSV"
+							"Directory": "target"
 						}
 					},
 					"enableLogging": false,
