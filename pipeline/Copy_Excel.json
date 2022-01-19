@@ -64,7 +64,7 @@
 		"parameters": {
 			"test1": {
 				"type": "String",
-				"defaultValue": ".xlsx"
+				"defaultValue": "Source"
 			},
 			"Test2": {
 				"type": "String",
