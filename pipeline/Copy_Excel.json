@@ -63,10 +63,12 @@
 		],
 		"parameters": {
 			"test1": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": ".xlsx"
 			},
 			"Test2": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": ".xlsx"
 			}
 		},
 		"annotations": []
