@@ -8,6 +8,9 @@
 		"parameters": {
 			"Directory": {
 				"type": "String"
+			},
+			"File_Name_CSV": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
@@ -15,6 +18,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().File_Name_CSV",
+					"type": "Expression"
+				},
 				"folderPath": {
 					"value": "@dataset().Directory",
 					"type": "Expression"
