@@ -8,9 +8,6 @@
 		"parameters": {
 			"Directory": {
 				"type": "String"
-			},
-			"File_Name_CSV": {
-				"type": "String"
 			}
 		},
 		"annotations": [],
