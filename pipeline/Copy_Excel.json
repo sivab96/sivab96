@@ -32,10 +32,15 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"maxConcurrentConnections": 0,
-						"tableOption": "autoCreate",
-						"disableMetricsCollection": false
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -55,10 +60,11 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Test_Load",
+						"referenceName": "Emp_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"test3": "Test_Excel"
+							"Directory": "target",
+							"File_Name_CSV": "Test_CSV"
 						}
 					}
 				]
