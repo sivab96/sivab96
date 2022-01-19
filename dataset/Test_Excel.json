@@ -13,7 +13,8 @@
 				"fileName": "Test.xlsx",
 				"folderPath": "Source",
 				"container": "raw"
-			}
+			},
+			"firstRowAsHeader": true
 		},
 		"schema": []
 	}
