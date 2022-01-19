@@ -128,7 +128,7 @@
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"source1": {
-								"test3": "test_execl"
+								"test3": "test_excel"
 							},
 							"sink1": {
 								"test3": "Test_Excel_Inc"
