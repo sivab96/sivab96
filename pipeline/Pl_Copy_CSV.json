@@ -185,6 +185,9 @@
 						"referenceName": "DF_Product",
 						"type": "DataFlowReference",
 						"datasetParameters": {
+							"Prod": {
+								"Directory": " "
+							},
 							"Sink": {
 								"TableName": "TargetProduct"
 							}
