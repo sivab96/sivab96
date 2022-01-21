@@ -17,7 +17,12 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "Azure_SQL_Data_Transform",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"sink1": {
+								"test3": "Test_Query"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
