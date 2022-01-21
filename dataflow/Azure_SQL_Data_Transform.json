@@ -22,7 +22,7 @@
 				}
 			],
 			"transformations": [],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'query',\n\tstore: 'sqlserver',\n\tquery: 'SELECT Name,Last_Name FROM [SalesLT].[Test_Excel]',\n\tisolationLevel: 'READ_UNCOMMITTED') ~> sourceazure\nsourceazure sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\trecreate:true,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+			"script": "source(output(\n\t\tName as string,\n\t\tLast_Name as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'query',\n\tstore: 'sqlserver',\n\tquery: 'SELECT Name,Last_Name FROM [SalesLT].[Test_Excel]',\n\tisolationLevel: 'READ_UNCOMMITTED') ~> sourceazure\nsourceazure sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\trecreate:true,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
 		}
 	}
 }
