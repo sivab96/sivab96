@@ -1,10 +1,6 @@
 {
 	"name": "Emp_JSON",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "ls_adlsGen2_dev002",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {

@@ -497,7 +497,10 @@
 						}
 					},
 					"fieldList": [
-						"lastModified"
+						"lastModified",
+						"columnCount",
+						"structure",
+						"size"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",

@@ -8,6 +8,9 @@
 		"parameters": {
 			"Directory": {
 				"type": "String"
+			},
+			"FileName": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
@@ -15,7 +18,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "employees.csv",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
 				"folderPath": {
 					"value": "@dataset().Directory",
 					"type": "Expression"
