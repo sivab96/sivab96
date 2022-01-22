@@ -493,14 +493,13 @@
 						"referenceName": "Emp_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"Directory": "Source/"
+							"Directory": "Source",
+							"FileName": "*.csv"
 						}
 					},
 					"fieldList": [
-						"lastModified",
-						"columnCount",
-						"structure",
-						"size"
+						"childItems",
+						"lastModified"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
