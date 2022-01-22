@@ -123,14 +123,26 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "Source",
+							"wildcardFileName": "*.csv",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"tableOption": "autoCreate",
-						"disableMetricsCollection": false
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -144,20 +156,17 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SQLTable",
+						"referenceName": "Emp_CSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"TableName": "Product"
+							"Directory": "Source"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "SQLTable",
-						"type": "DatasetReference",
-						"parameters": {
-							"TableName": "target"
-						}
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -187,9 +196,6 @@
 						"datasetParameters": {
 							"Prod": {
 								"Directory": " "
-							},
-							"Sink": {
-								"TableName": "TargetProduct"
 							}
 						}
 					},
