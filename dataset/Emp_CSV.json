@@ -2,7 +2,7 @@
 	"name": "Emp_CSV",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_adlsGen2_dev002",
+			"referenceName": "LS_ADLS_Dev",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -15,6 +15,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "employees.csv",
 				"folderPath": {
 					"value": "@dataset().Directory",
 					"type": "Expression"
